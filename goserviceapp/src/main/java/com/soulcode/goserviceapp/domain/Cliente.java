@@ -63,8 +63,7 @@ public class Cliente extends Usuario {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(telefone, cpf, dataNascimento);
+    public int hashCode() {return Objects.hash(telefone, cpf, dataNascimento);
     }
 
 }
