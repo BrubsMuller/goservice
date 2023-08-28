@@ -11,6 +11,8 @@ SELECT * FROM agendamentos;
 SELECT * FROM prestadores_servicos;
 SELECT * FROM servicos;
 
+
+
 INSERT INTO usuarios (dtype, nome, email, perfil, senha, habilitado)
 VALUE (
 "Administrador", 
@@ -34,6 +36,32 @@ VALUES
     ('Treinamento', 'Treinamento em habilidades de comunicação', 'Treinamento em Comunicação'),
     ('Saúde', 'Sessão de fisioterapia para reabilitação', 'Fisioterapia de Reabilitação'),
     ('Desenvolvimento', 'Desenvolvimento de site institucional', 'Desenvolvimento de Site Institucional'),
-    ('Design', 'Design de interface de usuário para aplicativos', 'Design de Interface de Aplicativo');
+    ('Design', 'Design de interface de usuário para aplicativos', 'Design de Interface de Aplicativo');   
+ 
+    update usuarios set descricao = "Pontual e especialista.", taxa_por_hora = 100 where id = 5;
+    
+    INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUEs (5, 6) ;
+    INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUEs (5, 1) ;
+    INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUEs (5, 11) ;
+    INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUEs (5, 8) ;
+    INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUEs (5, 7) ;
+    INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUEs (5, 10) ;
+    INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUEs (5, 3) ;
+    INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUEs (5, 5) ;
+    INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUEs (5, 12) ;
+    
+     INSERT INTO prestadores_servicos (prestador_id, servico_id) VALUES 
+     (7, 3),
+     (7, 11),
+     (7, 10),
+     (7, 5),
+     (7, 1),
+     (7, 12),
+     (7, 8),
+     (7, 6);
+   
+    
+
+    
     
  
