@@ -25,6 +25,9 @@ VALUE (
 
 UPDATE usuarios SET habilitado = 0 WHERE id IN(1, 2, 6);
 
+UPDATE agendamentos SET status_agendamento = "AGUARDANDO_CONFIRMACAO" WHERE id = 3;
+UPDATE agendamentos SET status_agendamento = "AGUARDANDO_CONFIRMACAO" WHERE id = 1;
+
 INSERT INTO servicos (categoria, descricao, nome) 
 VALUES 
     ('Limpeza', 'Serviço de limpeza residencial', 'Limpeza Residencial'),
