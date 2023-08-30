@@ -10,6 +10,7 @@ import com.soulcode.goserviceapp.repository.AgendamentoRepository;
 import com.soulcode.goserviceapp.service.exceptions.AgendamentoNaoEncontradoExceptions;
 import com.soulcode.goserviceapp.service.exceptions.StatusAgendamentoImutavelException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -56,13 +57,27 @@ public class AgendamentoService {
         return agendamentoRepository.save(agendamento);
     }
 
+    @Cacheable(cacheNames = "redisCache")
     public List<Agendamento> findByCliente(Authentication authentication) {
         Cliente cliente = clienteService.findAuthenticated(authentication);
+        System.err.println("BUSCANDO NO BANCO DE DADOS...");
         return agendamentoRepository.findByClienteEmail(cliente.getEmail());
     }
 
+    //public List<Agendamento> findByCliente(Authentication authentication) {
+    //    Cliente cliente = clienteService.findAuthenticated(authentication);
+    //    return agendamentoRepository.findByClienteEmail(cliente.getEmail());
+    //}
+
+   // public List<Agendamento> findByPrestador(Authentication authentication) {
+    //    Prestador prestador = prestadorService.findAuthenticated(authentication);
+      //  return agendamentoRepository.findByPrestadorEmail(prestador.getEmail());
+   // }
+
+    @Cacheable(cacheNames = "redisCache")
     public List<Agendamento> findByPrestador(Authentication authentication) {
         Prestador prestador = prestadorService.findAuthenticated(authentication);
+        System.err.println("BUSCANDO NO BANCO DE DADOS...");
         return agendamentoRepository.findByPrestadorEmail(prestador.getEmail());
     }
 
